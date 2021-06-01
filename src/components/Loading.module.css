@@ -1,0 +1,14 @@
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 100px;
+  height: 100px;
+  margin: 4rem auto;
+  border-top: 4px solid #ccc;
+  border-radius: 50%;
+  animation: spinner linear 500ms infinite;
+}

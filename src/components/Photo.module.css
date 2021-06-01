@@ -1,0 +1,23 @@
+.photo-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  border: 1px solid #eee;
+  background-color: #fff;
+}
+.user-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.user-image {
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.photo {
+  width: 100%;
+  object-fit: contain;
+}
