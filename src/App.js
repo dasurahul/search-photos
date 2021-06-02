@@ -4,7 +4,6 @@ import Form from "./components/Form";
 import Photos from "./components/Photos";
 
 const App = () => {
-  console.log("App RUNNING");
   const [searchValue, setSearchValue] = useState("");
   const searchHandler = (data) => {
     setSearchValue(data);
