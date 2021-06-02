@@ -35,6 +35,9 @@ const Photos = (props) => {
     <div className={classes["photos-container"]}>
       {isLoading && <Loading />}
       {photos === undefined && <Loading />}
+      {photos !== undefined && !isLoading && photos.length === 0 && (
+        <p style={{ textAlign: "center", margin: "4rem 0" }}>No photos found</p>
+      )}
       {!isLoading &&
         photos !== undefined &&
         photos.map((photo) => {
