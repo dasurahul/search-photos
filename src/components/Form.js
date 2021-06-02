@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
 import classes from "./Form.module.css";
-const Form = ({ onSearch }) => {
-  console.log("Form is RUNNING");
+const Form = (props) => {
   const searchRef = useRef();
   const searchHandler = (event) => {
     event.preventDefault();
-    onSearch(searchRef.current.value);
+    props.onSearch(searchRef.current.value);
   };
   return (
     <form onSubmit={searchHandler} className={classes.form}>

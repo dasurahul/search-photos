@@ -1,10 +1,16 @@
 .photo-container {
   max-width: 600px;
   margin: 0 auto;
-  margin-bottom: 2rem;
-  border: 1px solid #eee;
+  margin-bottom: 40px;
   background-color: #fff;
+  border: 1px solid #eee;
 }
+
+.photo {
+  object-fit: contain;
+  width: 100%;
+}
+
 .user-details {
   display: flex;
   align-items: center;
@@ -15,9 +21,4 @@
 .user-image {
   object-fit: contain;
   border-radius: 50%;
-}
-
-.photo {
-  width: 100%;
-  object-fit: contain;
 }

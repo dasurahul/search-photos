@@ -1,14 +1,13 @@
 .form {
   display: flex;
   justify-content: center;
-  background-color: #fafafa;
 }
 
 .input {
   height: 1.75rem;
+  padding: 0 10px;
   border: 1px solid lightgray;
   outline: none;
-  padding: 0 10px;
   letter-spacing: 2px;
 }
 
