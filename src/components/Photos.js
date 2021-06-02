@@ -18,6 +18,7 @@ const Photos = (props) => {
       );
     }
     const fetchPhotos = async () => {
+      setIsLoading(true);
       const response = await fetch(url);
       const data = await response.json();
       if (!props.value) {
