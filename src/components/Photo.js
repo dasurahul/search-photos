@@ -11,10 +11,13 @@ const Photo = (props) => {
       <div className={classes["user-details"]}>
         <img
           className={classes["user-image"]}
-          src={props.photo.user.profile_image.small}
+          src={props.photo.user.profile_image.large}
           alt={props.photo.user.name}
         />
-        <h5>{props.photo.user.name}</h5>
+        <div>
+          <h5>{props.photo.user.name}</h5>
+          <p style={{ fontSize: "12px" }}>{props.photo.description}</p>
+        </div>
       </div>
     </div>
   );
