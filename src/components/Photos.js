@@ -3,43 +3,39 @@ import Loading from "./Loading";
 import Photo from "./Photo";
 import classes from "./Photos.module.css";
 const Photos = (props) => {
-  const [url, setUrl] = useState(
-    `https://api.unsplash.com/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M`
-  );
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    if (props.value) {
-      setUrl(
-        `https://api.unsplash.com/search/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.value}`
-      );
-    }
     const fetchPhotos = async () => {
       setIsLoading(true);
-      const response = await fetch(url);
-      const data = await response.json();
-      if (props.value) {
+      if (props.searchValue) {
+        const response = await fetch(
+          `https://api.unsplash.com/search/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}`
+        );
+        const data = await response.json();
         setPhotos(data.results);
       } else {
+        const response = await fetch(
+          `https://api.unsplash.com/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M`
+        );
+        const data = await response.json();
         setPhotos(data);
       }
       setIsLoading(false);
     };
     fetchPhotos();
-  }, [url, props]);
+  }, [props.searchValue]);
+
+  if (!isLoading && photos.length === 0) {
+    return (
+      <section>
+        <p style={{ textAlign: "center", margin: "4rem 0" }}>No photos found</p>
+      </section>
+    );
+  }
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (photos === undefined) {
-    return <Loading />;
-  }
-
-  if (photos.length === 0) {
-    return (
-      <p style={{ textAlign: "center", margin: "4rem 0" }}>No photos found</p>
-    );
   }
 
   return (
