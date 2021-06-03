@@ -1,21 +1,26 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import classes from "./Form.module.css";
 const Form = (props) => {
-  const searchRef = useRef();
+  const [searchValue, setSearchValue] = useState("");
+  const [isValid, setIsValid] = useState(true);
   const searchHandler = (event) => {
     event.preventDefault();
-    if (searchRef.current.value.trim().length === 0) {
-      alert("Enter something");
+    if (searchValue.trim().length === 0) {
+      setIsValid(false);
       return;
     }
-    props.onSearch(searchRef.current.value);
+    props.onSearch(searchValue);
   };
   return (
     <form onSubmit={searchHandler} className={classes.form}>
       <input
-        className={`${classes.input} ${classes["text-input"]}`}
-        ref={searchRef}
+        className={`${classes.input} ${!isValid ? classes.invalid : ""}`}
         type="text"
+        value={searchValue}
+        onChange={(event) => {
+          setIsValid(true);
+          setSearchValue(event.target.value);
+        }}
       />
       <button className={`${classes.input} ${classes.button}`} type="submit">
         Search

@@ -20,3 +20,7 @@
 .button:hover {
   background-color: #eee;
 }
+
+.invalid {
+  border-color: red;
+}
