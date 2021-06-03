@@ -10,6 +10,7 @@ const Form = (props) => {
       return;
     }
     props.onSearch(searchValue);
+    setSearchValue("");
   };
   return (
     <form onSubmit={searchHandler} className={classes.form}>
