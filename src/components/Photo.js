@@ -16,9 +16,7 @@ const Photo = (props) => {
         />
         <div>
           <h5>{props.photo.user.name}</h5>
-          <p style={{ marginTop: "10px", fontSize: "12px" }}>
-            {props.photo.description}
-          </p>
+          <p style={{ fontSize: "12px" }}>{props.photo.description}</p>
         </div>
       </div>
     </div>
