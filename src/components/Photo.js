@@ -9,6 +9,10 @@ const Photo = (props) => {
   if (description) {
     shortDescription = description.substring(0, 50);
   }
+
+  if (description && description.length > 50) {
+    shortDescription = shortDescription.concat("...");
+  }
   const readMore = () => {
     setShowFullDescription(true);
   };
@@ -28,16 +32,16 @@ const Photo = (props) => {
           src={props.photo.user.profile_image.large}
           alt={props.photo.user.name}
         />
-        <div>
+        <div className={classes["user-data"]}>
           <h5 style={{ marginBottom: "6px" }}>{props.photo.user.name}</h5>
           <div className={classes["image-description"]}>
             {description && !showFullDescription && shortDescription}
             {description && showFullDescription && description}
             {description && description.length > 50 && !showFullDescription && (
-              <ExpandMoreIcon onClick={readMore} />
+              <ExpandMoreIcon onClick={readMore} className={classes.icon} />
             )}
             {description && description.length > 50 && showFullDescription && (
-              <ExpandLessIcon onClick={readLess} />
+              <ExpandLessIcon onClick={readLess} className={classes.icon} />
             )}
           </div>
         </div>
