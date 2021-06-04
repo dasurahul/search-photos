@@ -4,7 +4,7 @@
 }
 
 .input {
-  height: 1.75rem;
+  height: 40px;
   padding: 0 10px;
   border: 1px solid lightgray;
   outline: none;
@@ -15,12 +15,17 @@
   background-color: transparent;
   cursor: pointer;
   transition: background-color 300ms;
+  color: #222;
 }
 
 .button:hover {
   background-color: #eee;
 }
 
-.invalid {
-  border-color: red;
+.invalid .button {
+  color: #ccc;
+}
+
+.invalid .button:hover {
+  background-color: transparent;
 }

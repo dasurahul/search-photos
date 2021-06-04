@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./Form.module.css";
+import SearchIcon from "@material-ui/icons/Search";
 const Form = (props) => {
   const [searchValue, setSearchValue] = useState("");
   const [isValid, setIsValid] = useState(true);
@@ -13,18 +14,22 @@ const Form = (props) => {
     setSearchValue("");
   };
   return (
-    <form onSubmit={searchHandler} className={classes.form}>
+    <form
+      onSubmit={searchHandler}
+      className={`${classes.form} ${!isValid ? classes.invalid : ""}`}
+    >
       <input
-        className={`${classes.input} ${!isValid ? classes.invalid : ""}`}
+        className={classes.input}
         type="text"
+        placeholder="Search"
         value={searchValue}
         onChange={(event) => {
           setIsValid(true);
           setSearchValue(event.target.value);
         }}
       />
-      <button className={`${classes.input} ${classes.button}`} type="submit">
-        Search
+      <button className={`${classes.input} ${classes.button}`}>
+        <SearchIcon />
       </button>
     </form>
   );
