@@ -1,31 +1,28 @@
 .form {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .input {
   height: 40px;
   padding: 0 10px;
-  border: 1px solid lightgray;
+  border: none;
   outline: none;
   letter-spacing: 2px;
+  border-bottom: 1px solid lightgray;
+  background-color: transparent;
 }
 
 .button {
   background-color: transparent;
   cursor: pointer;
-  transition: background-color 300ms;
   color: #222;
-}
-
-.button:hover {
-  background-color: #eee;
+  height: 40px !important;
+  padding: 0 5px;
+  border-bottom: 1px solid lightgray;
 }
 
 .invalid .button {
   color: #ccc;
-}
-
-.invalid .button:hover {
-  background-color: transparent;
 }
