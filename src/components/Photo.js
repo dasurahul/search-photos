@@ -15,8 +15,12 @@ const Photo = (props) => {
           alt={props.photo.user.name}
         />
         <div>
-          <h5>{props.photo.user.name}</h5>
-          <p style={{ fontSize: "12px" }}>{props.photo.description}</p>
+          <h5 style={{ marginBottom: "6px" }}>{props.photo.user.name}</h5>
+          <p style={{ fontSize: "10px" }}>
+            {props.photo.description
+              ? props.photo.description.substring(0, 65)
+              : null}
+          </p>
         </div>
       </div>
     </div>
