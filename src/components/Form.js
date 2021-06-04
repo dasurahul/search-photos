@@ -28,7 +28,9 @@ const Form = (props) => {
           setSearchValue(event.target.value);
         }}
       />
-      <SearchIcon className={classes.button} />
+      <button className={classes.button}>
+        <SearchIcon />
+      </button>
     </form>
   );
 };

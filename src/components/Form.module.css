@@ -1,26 +1,25 @@
 .form {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .input {
   height: 40px;
   padding: 0 10px;
+  background-color: transparent;
   border: none;
+  border-bottom: 1px solid lightgray;
   outline: none;
   letter-spacing: 2px;
-  border-bottom: 1px solid lightgray;
-  background-color: transparent;
 }
 
 .button {
   background-color: transparent;
-  cursor: pointer;
-  color: #222;
-  height: 40px !important;
-  padding: 0 5px;
+  border: none;
   border-bottom: 1px solid lightgray;
+  outline: none;
+  color: #222;
+  cursor: pointer;
 }
 
 .invalid .button {
