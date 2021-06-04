@@ -33,15 +33,15 @@ const Photo = (props) => {
           alt={props.photo.user.name}
         />
         <div className={classes["user-data"]}>
-          <h5 style={{ marginBottom: "6px" }}>{props.photo.user.name}</h5>
+          <h5>{props.photo.user.name}</h5>
           <div className={classes["image-description"]}>
             {description && !showFullDescription && shortDescription}
             {description && showFullDescription && description}
             {description && description.length > 50 && !showFullDescription && (
-              <ExpandMoreIcon onClick={readMore} className={classes.icon} />
+              <ExpandMoreIcon onClick={readMore} />
             )}
             {description && description.length > 50 && showFullDescription && (
-              <ExpandLessIcon onClick={readLess} className={classes.icon} />
+              <ExpandLessIcon onClick={readLess} />
             )}
           </div>
         </div>

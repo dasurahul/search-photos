@@ -1,30 +1,41 @@
 .photo-container {
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
   margin-bottom: 40px;
-  background-color: #fff;
-  border: 1px solid #eee;
 }
 
 .photo {
-  object-fit: contain;
   width: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .user-details {
+  padding: 20px;
   display: flex;
   gap: 15px;
-  padding: 20px;
 }
 
 .user-image {
-  height: 50px;
   width: 50px;
+  height: 50px;
   object-fit: contain;
   border-radius: 50%;
 }
 
+.user-data {
+  overflow: hidden;
+}
+
+.user-data h5 {
+  margin-bottom: 6px;
+}
+
 .image-description {
+  font-size: 12px;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  gap: 15px;
 }
