@@ -3,8 +3,20 @@
 }
 
 .btn {
+  text-decoration: none;
+  color: #222;
+  border: 1px solid #ccc;
+  padding: 12px 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.2);
   display: block;
   width: 150px;
   margin: 40px auto;
   text-align: center;
+  transition: box-shadow 300ms;
+  background-image: linear-gradient(to bottom, #fff, #fafafa);
+}
+
+.btn:hover {
+  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
 }

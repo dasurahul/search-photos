@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Photo from "./Photo";
 import classes from "./Photos.module.css";
-import Button from "@material-ui/core/Button";
+
 const Photos = (props) => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,9 +47,9 @@ const Photos = (props) => {
         })}
       </div>
       {photos.length > 9 && (
-        <Button className={classes.btn} href="#top" variant="contained">
+        <a className={classes.btn} href="#top" variant="contained">
           Back to Top
-        </Button>
+        </a>
       )}
     </React.Fragment>
   );
