@@ -29,17 +29,6 @@ const Form = (props) => {
           setSearchValue(event.target.value);
         }}
       />
-
-      {/* <TextField
-        variant="standard"
-        label="Search Photos Name"
-        type="text"
-        onChange={(event) => {
-          setIsValid(true);
-          setSearchValue(event.target.value);
-        }}
-        placeholder="Search"
-      /> */}
       <button className={classes.button}>
         <SearchIcon />
       </button>
