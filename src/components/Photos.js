@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Photo from "./Photo";
 import classes from "./Photos.module.css";
+import Button from "@material-ui/core/Button";
 const Photos = (props) => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,11 +40,27 @@ const Photos = (props) => {
   }
 
   return (
-    <div className={classes["photos-container"]}>
-      {photos.map((photo) => {
-        return <Photo key={photo.id} photo={photo} />;
-      })}
-    </div>
+    <React.Fragment>
+      <div className={classes["photos-container"]}>
+        {photos.map((photo) => {
+          return <Photo key={photo.id} photo={photo} />;
+        })}
+      </div>
+      {photos.length > 9 && (
+        <a
+          href="#top"
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            justifyContent: "center",
+            margin: "2rem 0",
+          }}
+        >
+          {console.log(photos.length)}
+          <Button variant="contained">Back to Top</Button>
+        </a>
+      )}
+    </React.Fragment>
   );
 };
 
