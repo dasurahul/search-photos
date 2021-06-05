@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./Form.module.css";
+import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 const Form = (props) => {
   const [searchValue, setSearchValue] = useState("");
@@ -28,6 +29,17 @@ const Form = (props) => {
           setSearchValue(event.target.value);
         }}
       />
+
+      {/* <TextField
+        variant="standard"
+        label="Search Photos Name"
+        type="text"
+        onChange={(event) => {
+          setIsValid(true);
+          setSearchValue(event.target.value);
+        }}
+        placeholder="Search"
+      /> */}
       <button className={classes.button}>
         <SearchIcon />
       </button>

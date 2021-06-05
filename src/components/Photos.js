@@ -47,18 +47,9 @@ const Photos = (props) => {
         })}
       </div>
       {photos.length > 9 && (
-        <a
-          href="#top"
-          style={{
-            textDecoration: "none",
-            display: "flex",
-            justifyContent: "center",
-            margin: "2rem 0",
-          }}
-        >
-          {console.log(photos.length)}
-          <Button variant="contained">Back to Top</Button>
-        </a>
+        <Button className={classes.btn} href="#top" variant="contained">
+          Back to Top
+        </Button>
       )}
     </React.Fragment>
   );
