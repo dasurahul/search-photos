@@ -33,7 +33,7 @@
 .cancel-button {
   margin-bottom: 15px;
   background-color: transparent;
-  color: #222;
+  color: rgba(255, 0, 0, 0.8);
   letter-spacing: 2px;
   border: none;
   outline: none;

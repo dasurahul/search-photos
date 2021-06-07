@@ -28,9 +28,6 @@
 
 .photo-details {
   padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
 }
 
 .user-small-image {
@@ -57,4 +54,15 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.like-icon {
+  color: rgba(255, 0, 0, 0.8);
 }

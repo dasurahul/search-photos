@@ -3,6 +3,7 @@ import classes from "./Photo.module.css";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import Modal from "./Modal";
 const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -50,11 +51,6 @@ const Photo = (props) => {
         alt={props.photo.alt_description}
       />
       <div className={classes["photo-details"]}>
-        <img
-          className={classes["user-small-image"]}
-          src={props.photo.user.profile_image.large}
-          alt={props.photo.user.name}
-        />
         <div className={classes["photo-data"]}>
           <h5>{props.photo.user.name}</h5>
           <div className={classes["photo-description"]}>
@@ -66,6 +62,11 @@ const Photo = (props) => {
             {description && description.length > 50 && showFullDescription && (
               <ExpandLessIcon onClick={readLess} />
             )}
+            {!description && props.photo.alt_description}
+            <div className={classes.likes}>
+              <FavoriteIcon className={classes["like-icon"]} />
+              {props.photo.likes}
+            </div>
           </div>
         </div>
       </div>
