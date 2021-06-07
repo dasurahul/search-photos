@@ -57,11 +57,15 @@ const Photos = (props) => {
         })}
       </div>
       <div className={classes["buttons-container"]}>
-        {allPages > 1 &&
+        {allPages.length > 1 &&
           allPages.map((page) => {
+            let className = classes.button;
+            if (page === currentPage) {
+              className = `${classes.button} ${classes["current-page"]}`;
+            }
             return (
               <button
-                className={classes.button}
+                className={className}
                 onClick={() => setCurrentPage(page)}
               >
                 {page}
@@ -69,11 +73,6 @@ const Photos = (props) => {
             );
           })}
       </div>
-      {photos.length > 9 && (
-        <a className={classes.btn} href="#top" variant="contained">
-          Back to Top
-        </a>
-      )}
     </React.Fragment>
   );
 };
