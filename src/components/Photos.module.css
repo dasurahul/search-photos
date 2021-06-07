@@ -30,6 +30,7 @@
 }
 
 .current-page {
-  background-image: linear-gradient(to bottom, blue, blue);
+  background-image: linear-gradient(to bottom, #222, #313131);
+  border: 1px solid #313131;
   color: white;
 }
