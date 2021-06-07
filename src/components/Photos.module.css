@@ -20,3 +20,24 @@
 .btn:hover {
   box-shadow: 0 2px rgba(0, 0, 0, 0.2);
 }
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  background-image: linear-gradient(to bottom, #fff, #fafafa);
+  border: 1px solid #eee;
+  box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+}
