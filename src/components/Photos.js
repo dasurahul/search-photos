@@ -79,6 +79,7 @@ const Photos = (props) => {
             className={classes["home-button"]}
             onClick={() => {
               props.setSearchValue(null);
+              setCurrentPage(1);
             }}
           >
             Go Back Home
