@@ -36,6 +36,7 @@
 }
 
 .home-button {
+  width: 200px;
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
@@ -44,6 +45,7 @@
   box-shadow: 0 1px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
   color: #222;
+  text-align: center;
 }
 
 .home-button:hover {
