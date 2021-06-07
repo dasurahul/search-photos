@@ -1,0 +1,39 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.item {
+  border-bottom: 1px solid lightgray;
+  margin: 15px 0;
+  padding: 10px 0;
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+}
+
+.cancel-button {
+  margin-bottom: 15px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

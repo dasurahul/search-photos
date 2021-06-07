@@ -16,8 +16,28 @@
 .user-details {
   padding: 20px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-data {
+  display: flex;
+  align-items: center;
   gap: 15px;
+}
+
+.photo-details {
+  padding: 20px;
+  display: flex;
   flex-wrap: wrap;
+  gap: 15px;
+}
+
+.user-small-image {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .user-image {
@@ -27,11 +47,11 @@
   border-radius: 50%;
 }
 
-.user-data h5 {
+.photo-data h5 {
   margin-bottom: 6px;
 }
 
-.image-description {
+.photo-description {
   font-size: 12px;
   display: flex;
   flex-direction: column;
