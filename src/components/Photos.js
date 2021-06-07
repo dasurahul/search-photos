@@ -9,7 +9,7 @@ const Photos = (props) => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    const fetchPhotos = async (page = 1) => {
+    const fetchPhotos = async () => {
       setIsLoading(true);
       if (props.searchValue) {
         const response = await fetch(
@@ -37,8 +37,6 @@ const Photos = (props) => {
     }
   }
 
-  console.log(allPages);
-
   if (!isLoading && photos.length === 0) {
     return (
       <section>
@@ -63,7 +61,7 @@ const Photos = (props) => {
           allPages.map((page) => {
             let className = classes.button;
             if (page === currentPage) {
-              className = `${classes.button} ${classes["current-page"]}`;
+              className = `${classes.button} ${classes["active-button"]}`;
             }
             return (
               <button
@@ -74,6 +72,8 @@ const Photos = (props) => {
               </button>
             );
           })}
+      </div>
+      <div>
         {props.searchValue && (
           <button
             className={classes["home-button"]}

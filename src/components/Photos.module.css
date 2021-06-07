@@ -1,9 +1,5 @@
 .photos-container {
-  margin: 4rem 0;
-}
-
-.btn:hover {
-  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
+  margin: 70px 0;
 }
 
 .buttons-container {
@@ -29,23 +25,22 @@
   box-shadow: 0 2px rgba(0, 0, 0, 0.2);
 }
 
-.current-page {
+.active-button {
   background-image: linear-gradient(to bottom, #222, #313131);
   border: 1px solid #313131;
-  color: white;
+  color: #fafafa;
 }
 
 .home-button {
-  width: 200px;
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
   border: 1px solid #eee;
   background-image: linear-gradient(to bottom, #fff, #fafafa);
   box-shadow: 0 1px rgba(0, 0, 0, 0.2);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #222;
-  text-align: center;
+  border-radius: 6px;
 }
 
 .home-button:hover {
