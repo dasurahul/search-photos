@@ -11,7 +11,7 @@ const App = () => {
     <React.Fragment>
       <Header />
       <Form onSearch={searchHandler} />
-      <Photos searchValue={searchValue} />
+      <Photos setSearchValue={setSearchValue} searchValue={searchValue} />
     </React.Fragment>
   );
 };

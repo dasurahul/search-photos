@@ -31,8 +31,10 @@ const Photos = (props) => {
   }, [props.searchValue, currentPage]);
 
   let allPages = [];
-  for (let i = 1; i <= totalPages; i++) {
-    allPages.push(i);
+  if (props.searchValue) {
+    for (let i = 1; i <= totalPages; i++) {
+      allPages.push(i);
+    }
   }
 
   console.log(allPages);
@@ -72,6 +74,16 @@ const Photos = (props) => {
               </button>
             );
           })}
+        {props.searchValue && (
+          <button
+            className={classes["home-button"]}
+            onClick={() => {
+              props.setSearchValue(null);
+            }}
+          >
+            Go Back Home
+          </button>
+        )}
       </div>
     </React.Fragment>
   );
