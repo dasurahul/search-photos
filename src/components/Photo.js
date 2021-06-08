@@ -9,8 +9,8 @@ const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const name = props.photo.user.name;
-  const photo = props.photo.urls.regular;
-  const userImageLink = props.photo.user.profile_image.large;
+  const photoUrl = props.photo.urls.regular;
+  const userProfileImageUrl = props.photo.user.profile_image.large;
   const description = props.photo.description;
   const altDescription = props.photo.alt_description;
   const likes = props.photo.likes;
@@ -18,7 +18,6 @@ const Photo = (props) => {
   if (description) {
     shortDescription = description.substring(0, 50);
   }
-
   if (description && description.length > 50) {
     shortDescription = shortDescription.concat("...");
   }
@@ -41,7 +40,7 @@ const Photo = (props) => {
         <div className={classes["user-data"]}>
           <img
             className={classes["user-image"]}
-            src={userImageLink}
+            src={userProfileImageUrl}
             alt={name}
           />
           <h5>{name}</h5>
@@ -50,7 +49,7 @@ const Photo = (props) => {
           <MoreHorizIcon onClick={openModal} />
         </div>
       </div>
-      <img className={classes.photo} src={photo} alt={altDescription} />
+      <img className={classes.photo} src={photoUrl} alt={altDescription} />
       <div className={classes["photo-details"]}>
         <div className={classes["photo-data"]}>
           <h5>{name}</h5>
