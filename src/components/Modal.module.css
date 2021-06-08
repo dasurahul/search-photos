@@ -27,7 +27,6 @@
   display: block;
   text-decoration: none;
   color: #222;
-  font-size: 14px;
 }
 
 .cancel-button {
@@ -38,5 +37,4 @@
   border: none;
   outline: none;
   cursor: pointer;
-  font-size: 14px;
 }
