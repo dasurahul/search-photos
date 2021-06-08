@@ -12,12 +12,17 @@ const Photos = (props) => {
     const fetchPhotos = async () => {
       setIsLoading(true);
       if (props.searchValue) {
+        let response;
         if (props.newSearch) {
           setCurrentPage(1);
+          response = await fetch(
+            `https://api.unsplash.com/search/photos?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}&&page=1`
+          );
+        } else {
+          response = await fetch(
+            `https://api.unsplash.com/search/photos?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}&&page=${currentPage}`
+          );
         }
-        const response = await fetch(
-          `https://api.unsplash.com/search/photos?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}&&page=${currentPage}`
-        );
         const data = await response.json();
         setPhotos(data.results);
         setTotalPages(data.total_pages);
