@@ -29,6 +29,10 @@
   color: #222;
 }
 
+.item:hover {
+  color: #222;
+}
+
 .cancel-button {
   margin-bottom: 15px;
   background-color: transparent;
