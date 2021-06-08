@@ -9,6 +9,7 @@ const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
   const name = props.photo.user.name;
+  const photo = props.photo.urls.regular;
   const userImageLink = props.photo.user.profile_image.large;
   const description = props.photo.description;
   const altDescription = props.photo.alt_description;
@@ -43,17 +44,13 @@ const Photo = (props) => {
             src={userImageLink}
             alt={name}
           />
-          <h5>{props.photo.user.name}</h5>
+          <h5>{name}</h5>
         </div>
         <div>
           <MoreHorizIcon onClick={openModal} />
         </div>
       </div>
-      <img
-        className={classes.photo}
-        src={props.photo.urls.regular}
-        alt={altDescription}
-      />
+      <img className={classes.photo} src={photo} alt={altDescription} />
       <div className={classes["photo-details"]}>
         <div className={classes["photo-data"]}>
           <h5>{name}</h5>
