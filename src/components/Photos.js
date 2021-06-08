@@ -80,10 +80,10 @@ const Photos = (props) => {
           />
         )}
       </div>
-      <div>
+      <div style={{ maxWidth: "600px", margin: "20px auto" }}>
         {props.searchValue && (
           <Button
-            className={classes["home-button"]}
+            style={{ display: "block", margin: "0 auto" }}
             onClick={() => {
               props.setSearchValue(null);
               setCurrentPage(1);
