@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
 import Photo from "./Photo";
 import classes from "./Photos.module.css";
+import Pagination from "@material-ui/lab/Pagination";
+import Button from "@material-ui/core/Button";
 
 const Photos = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState();
+  const [totalPages, setTotalPages] = useState(0);
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -38,6 +40,11 @@ const Photos = (props) => {
     fetchPhotos();
   }, [props.searchValue, props.newSearch, currentPage]);
 
+  const handleChange = (event, value) => {
+    setCurrentPage(value);
+    props.setNewSearch(false);
+  };
+
   let allPages = [];
   if (props.searchValue) {
     for (let i = 1; i <= totalPages; i++) {
@@ -65,28 +72,17 @@ const Photos = (props) => {
         })}
       </div>
       <div className={classes["buttons-container"]}>
-        {allPages.length > 1 &&
-          allPages.map((page) => {
-            let className = classes.button;
-            if (page === currentPage) {
-              className = `${classes.button} ${classes["active-button"]}`;
-            }
-            return (
-              <button
-                className={className}
-                onClick={() => {
-                  setCurrentPage(page);
-                  props.setNewSearch(false);
-                }}
-              >
-                {page}
-              </button>
-            );
-          })}
+        {allPages.length > 1 && (
+          <Pagination
+            page={currentPage}
+            count={totalPages}
+            onChange={handleChange}
+          />
+        )}
       </div>
       <div>
         {props.searchValue && (
-          <button
+          <Button
             className={classes["home-button"]}
             onClick={() => {
               props.setSearchValue(null);
@@ -94,7 +90,7 @@ const Photos = (props) => {
             }}
           >
             Go Back Home
-          </button>
+          </Button>
         )}
       </div>
     </React.Fragment>
