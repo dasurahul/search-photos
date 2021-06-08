@@ -46,7 +46,10 @@ const Photo = (props) => {
           <h5>{name}</h5>
         </div>
         <div>
-          <MoreHorizIcon onClick={openModal} />
+          <MoreHorizIcon
+            className={classes["more-horiz-icon"]}
+            onClick={openModal}
+          />
         </div>
       </div>
       <img className={classes.photo} src={photoUrl} alt={altDescription} />
