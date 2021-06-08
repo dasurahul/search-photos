@@ -8,7 +8,11 @@ import Modal from "./Modal";
 const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const name = props.photo.user.name;
+  const userImageLink = props.photo.user.profile_image.large;
   const description = props.photo.description;
+  const altDescription = props.photo.alt_description;
+  const likes = props.photo.likes;
   let shortDescription = "";
   if (description) {
     shortDescription = description.substring(0, 50);
@@ -36,8 +40,8 @@ const Photo = (props) => {
         <div className={classes["user-data"]}>
           <img
             className={classes["user-image"]}
-            src={props.photo.user.profile_image.large}
-            alt={props.photo.user.name}
+            src={userImageLink}
+            alt={name}
           />
           <h5>{props.photo.user.name}</h5>
         </div>
@@ -48,11 +52,11 @@ const Photo = (props) => {
       <img
         className={classes.photo}
         src={props.photo.urls.regular}
-        alt={props.photo.alt_description}
+        alt={altDescription}
       />
       <div className={classes["photo-details"]}>
         <div className={classes["photo-data"]}>
-          <h5>{props.photo.user.name}</h5>
+          <h5>{name}</h5>
           <div className={classes["photo-description"]}>
             {description && !showFullDescription && shortDescription}
             {description && showFullDescription && description}
@@ -62,10 +66,10 @@ const Photo = (props) => {
             {description && description.length > 50 && showFullDescription && (
               <ExpandLessIcon onClick={readLess} />
             )}
-            {!description && props.photo.alt_description}
+            {!description && altDescription}
             <div className={classes.likes}>
               <FavoriteIcon className={classes["like-icon"]} />
-              {props.photo.likes}
+              {likes}
             </div>
           </div>
         </div>

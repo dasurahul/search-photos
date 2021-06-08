@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
 
 const Modal = (props) => {
+  const downloadLink = props.photo.photo.links.download;
+  const profileLink = props.photo.photo.user.links.html;
   return ReactDOM.createPortal(
     <div className={classes.overlay} onClick={() => props.closeModal()}>
       <div className={classes.modal}>
         <a
           className={classes.item}
-          href={props.photo.photo.links.download}
+          href={downloadLink}
           target="_blank"
           rel="noreferrer"
         >
@@ -16,7 +18,7 @@ const Modal = (props) => {
         </a>
         <a
           className={classes.item}
-          href={props.photo.photo.user.links.html}
+          href={profileLink}
           target="_blank"
           rel="noreferrer"
         >
