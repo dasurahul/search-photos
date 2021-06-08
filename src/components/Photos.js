@@ -12,15 +12,18 @@ const Photos = (props) => {
     const fetchPhotos = async () => {
       setIsLoading(true);
       if (props.searchValue) {
+        if (props.newSearch) {
+          setCurrentPage(1);
+        }
         const response = await fetch(
-          `https://api.unsplash.com/search/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}&&page=${currentPage}`
+          `https://api.unsplash.com/search/photos?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&query=${props.searchValue}&&page=${currentPage}`
         );
         const data = await response.json();
         setPhotos(data.results);
         setTotalPages(data.total_pages);
       } else {
         const response = await fetch(
-          `https://api.unsplash.com/photos/?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&per_page=20`
+          `https://api.unsplash.com/photos?client_id=8zFIPebzf0QHzrvmkTjBEHGNF-gwGiYo4WTQp6huP2M&&per_page=20`
         );
         const data = await response.json();
         setPhotos(data);
@@ -28,7 +31,7 @@ const Photos = (props) => {
       setIsLoading(false);
     };
     fetchPhotos();
-  }, [props.searchValue, currentPage]);
+  }, [props.searchValue, props.newSearch, currentPage]);
 
   let allPages = [];
   if (props.searchValue) {
@@ -66,7 +69,10 @@ const Photos = (props) => {
             return (
               <button
                 className={className}
-                onClick={() => setCurrentPage(page)}
+                onClick={() => {
+                  setCurrentPage(page);
+                  props.setNewSearch(false);
+                }}
               >
                 {page}
               </button>
