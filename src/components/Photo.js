@@ -4,7 +4,8 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import Modal from "./Modal";
+import Modal from "react-bootstrap/Modal";
+import Button from "@material-ui/core/Button";
 const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -35,7 +36,39 @@ const Photo = (props) => {
   };
   return (
     <div className={classes["photo-container"]}>
-      {modalIsOpen && <Modal photo={props} closeModal={closeModal} />}
+      {modalIsOpen && (
+        <Modal show={modalIsOpen} centered animation>
+          <Modal.Body>
+            <a
+              className={classes.link}
+              href={props.photo.links.download}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Photo
+            </a>
+            <a
+              className={classes.link}
+              href={props.photo.user.links.html}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Visit User Profile
+            </a>
+            <Button
+              style={{
+                textAlign: "center",
+                display: "block",
+                margin: "0 auto",
+                color: "rgba(255, 0, 0, 0.8)",
+              }}
+              onClick={closeModal}
+            >
+              Cancel
+            </Button>
+          </Modal.Body>
+        </Modal>
+      )}
       <div className={classes["user-details"]}>
         <div className={classes["user-data"]}>
           <img
