@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
@@ -9,10 +10,4 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #222;
-  background-color: #fafafa;
-  letter-spacing: 1px;
-}
-
-html {
-  scroll-behavior: smooth;
 }

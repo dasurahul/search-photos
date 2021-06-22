@@ -1,6 +1,9 @@
 .header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 5rem;
+  max-height: 4rem;
+  border-bottom: 1px solid #ddd;
+  font-family: "Dancing Script", "Roboto", sans-serif;
+  margin-bottom: 30px;
+  padding: 20px;
 }
