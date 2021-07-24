@@ -48,10 +48,8 @@ const Form = (props) => {
 export default React.memo(Form);
 
 const Container = styled.div`
-  text-align: center;
-  width: 75%;
-  max-width: 400px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 `;
 
 const InputForm = styled.form`
@@ -59,7 +57,12 @@ const InputForm = styled.form`
   border-radius: 40px;
   padding: 10px 12px;
   display: flex;
-  justify-content: space-between;
+  flex: 1;
+  max-width: 600px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  :hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 const Input = styled.input`
@@ -67,6 +70,7 @@ const Input = styled.input`
   padding: 10px;
   border: none;
   outline: none;
+  width: 100%;
 `;
 
 const Button = styled.button`
