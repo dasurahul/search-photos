@@ -6,6 +6,7 @@ import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Modal from "react-bootstrap/Modal";
 import Button from "@material-ui/core/Button";
+
 const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -34,6 +35,27 @@ const Photo = (props) => {
   const readLess = () => {
     setShowFullDescription(false);
   };
+  const download = (e) => {
+    e.preventDefault();
+    console.log(e.target.href);
+    fetch(e.target.href, {
+      method: "GET",
+      headers: {},
+    })
+      .then((response) => {
+        response.arrayBuffer().then(function (buffer) {
+          const url = window.URL.createObjectURL(new Blob([buffer]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", "image.jpg");
+          document.body.appendChild(link);
+          link.click();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className={classes["photo-container"]}>
       {modalIsOpen && (
@@ -54,6 +76,16 @@ const Photo = (props) => {
               rel="noreferrer"
             >
               Visit User Profile
+            </a>
+            <a
+              href={photoUrl}
+              className={classes.link}
+              download
+              onClick={(e) => download(e)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Download
             </a>
             <Button
               style={{
