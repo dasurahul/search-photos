@@ -1,35 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
+import { ShareSocial } from "react-share-social";
+
+const style = {
+  background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+  borderRadius: 3,
+  border: 0,
+  color: "white",
+  padding: "0 30px",
+  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+  width: "80%",
+  maxWidth: "500px",
+};
 
 const Modal = (props) => {
-  const downloadLink = props.photo.photo.links.download;
-  const profileLink = props.photo.photo.user.links.html;
   return ReactDOM.createPortal(
     <div className={classes.overlay} onClick={() => props.closeModal()}>
       <div className={classes.modal}>
-        <a
-          className={classes.item}
-          href={downloadLink}
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Photo
-        </a>
-        <a
-          className={classes.item}
-          href={profileLink}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Visit User Profile
-        </a>
-        <button
-          onClick={() => props.closeModal()}
-          className={classes["cancel-button"]}
-        >
-          Cancel
-        </button>
+        <ShareSocial
+          style={style}
+          url={props.url}
+          socialTypes={["facebook", "twitter", "reddit", "linkedin"]}
+        />
       </div>
     </div>,
     document.getElementById("portal")

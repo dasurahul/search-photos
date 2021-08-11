@@ -5,12 +5,17 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
+import ShareIcon from "@material-ui/icons/Share";
 import Button from "@material-ui/core/Button";
+import MyModal from "./Modal";
 
 const Photo = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [open, setOpen] = useState(false);
+  const close = () => {
+    setOpen(false);
+  };
   const name = props.photo.user.name;
   const photoUrl = props.photo.urls.regular;
   const userProfileImageUrl = props.photo.user.profile_image.large;
@@ -88,9 +93,6 @@ const Photo = (props) => {
             >
               Download
             </a>
-            <Link to={`/share/${photoUrl}`} className={classes.link}>
-              Share
-            </Link>
             <Button
               style={{
                 textAlign: "center",
@@ -136,13 +138,28 @@ const Photo = (props) => {
               <ExpandLessIcon onClick={readLess} />
             )}
             {!description && altDescription}
-            <div className={classes.likes}>
-              <FavoriteIcon className={classes["like-icon"]} />
-              {likes}
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <div className={classes.likes}>
+                <FavoriteIcon className={classes["like-icon"]} />
+                {likes}
+              </div>
+              <div>
+                <ShareIcon
+                  onClick={() => setOpen(true)}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {open && <MyModal url={photoUrl} closeModal={close} />}
     </div>
   );
 };
