@@ -5,6 +5,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 const Photo = (props) => {
@@ -87,6 +88,9 @@ const Photo = (props) => {
             >
               Download
             </a>
+            <Link to={`/share/${photoUrl}`} className={classes.link}>
+              Share
+            </Link>
             <Button
               style={{
                 textAlign: "center",
@@ -114,6 +118,7 @@ const Photo = (props) => {
           <MoreHorizIcon
             className={classes["more-horiz-icon"]}
             onClick={openModal}
+            style={{ cursor: "pointer" }}
           />
         </div>
       </div>
